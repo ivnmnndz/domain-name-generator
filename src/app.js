@@ -17,7 +17,5 @@ window.onload = function() {
     )
     .join("</br>");
 
-  // const output = Object.entries(domainSchema).reduce((acc, [k, v]) => {});
-  // console.log(output);
   document.getElementById("domains").innerHTML = output;
 };
