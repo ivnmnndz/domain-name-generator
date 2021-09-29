@@ -2,10 +2,22 @@
 import "bootstrap";
 import "./style.css";
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
+const domainSchema = {
+  subDomain: ["www.", "blog.", "mail."],
+  pronoun: ["the", "our"],
+  adj: ["simple", "great", "big"],
+  noun: ["website", "winner"],
+  topLevelDomain: [".com", ".net", ".io", ".org"]
+};
 
 window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
+  const output = Object.values(domainSchema)
+    .reduce((accumulator, currentValue) =>
+      accumulator.flatMap(c => currentValue.map(n => c + n))
+    )
+    .join("</br>");
+
+  // const output = Object.entries(domainSchema).reduce((acc, [k, v]) => {});
+  // console.log(output);
+  document.getElementById("domains").innerHTML = output;
 };
